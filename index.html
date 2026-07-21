@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance Theme — Setup Guide</title>
+<meta name="description" content="Official setup and customization guide for the Resonance Shopify theme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#0055ff;--ink:#14161a;--muted:#5a6270;--line:#e6e8ec;--bg:#ffffff;--soft:#f6f7f9;--code:#f2f4f8;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{font-family:'Archivo',Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{display:grid;grid-template-columns:260px 1fr;max-width:1200px;margin:0 auto;gap:48px;padding:0 32px}
+header.site{border-bottom:1px solid var(--line);padding:28px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header.site .brand{font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:20px}
+header.site .brand span{color:var(--accent)}
+header.site .meta{color:var(--muted);font-size:14px}
+nav.toc{position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;padding:32px 0 48px}
+nav.toc h2{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:20px 0 8px}
+nav.toc h2:first-child{margin-top:0}
+nav.toc a{display:block;padding:4px 0;color:var(--ink);font-size:14px}
+nav.toc a:hover{color:var(--accent);text-decoration:none}
+main{padding:40px 0 96px;min-width:0}
+h1{font-size:40px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:1.1;margin-bottom:8px}
+h1 span,h2 span{color:var(--accent)}
+.lede{font-size:18px;color:var(--muted);max-width:720px;margin-bottom:8px}
+section{margin-top:64px;scroll-margin-top:24px}
+h2{font-size:26px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px}
+h3{font-size:18px;font-weight:700;margin:28px 0 8px}
+h4{font-size:15px;font-weight:700;margin:20px 0 6px}
+p{margin-bottom:12px;max-width:760px;text-wrap:pretty}
+ul,ol{margin:0 0 14px 22px;max-width:740px}
+li{margin-bottom:6px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:1px 6px;white-space:nowrap}
+.callout{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:16px 0;max-width:760px}
+.callout strong:first-child{color:var(--accent)}
+.callout.warn strong:first-child{color:#b45309}
+table{border-collapse:collapse;width:100%;max-width:760px;margin:12px 0 18px;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:700}
+td:first-child{white-space:nowrap;font-weight:600}
+.pill{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+footer.site{border-top:1px solid var(--line);padding:32px;text-align:center;color:var(--muted);font-size:14px}
+@media (max-width:900px){.wrap{grid-template-columns:1fr}nav.toc{position:static;max-height:none;padding-bottom:0;border-bottom:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="brand">Resonance<span>.</span> <span style="color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0">Theme Setup Guide</span></div>
+  <div class="meta">Version 1.0.0 · <a href="https://resonancethemes.zohodesk.com/portal/en/home">Support portal</a> · <a href="mailto:resonance.themehelp@gmail.com">Email support</a></div>
+</header>
+<div class="wrap">
+<nav class="toc">
+  <h2>Start here</h2>
+  <a href="#welcome">Welcome</a>
+  <a href="#quick-start">Quick start</a>
+  <a href="#theme-settings">Theme Settings</a>
+  <a href="#color-system">The color system</a>
+  <h2>Layout</h2>
+  <a href="#header">Header &amp; navigation</a>
+  <a href="#announcement">Announcement bar</a>
+  <a href="#cart-drawer">Cart drawer</a>
+  <a href="#footer">Footer</a>
+  <h2>Content sections</h2>
+  <a href="#hero">Hero</a>
+  <a href="#storytelling">Storytelling sections</a>
+  <a href="#audio">Audio player</a>
+  <a href="#hotspots">Image hotspots</a>
+  <a href="#utility-sections">FAQ, compare &amp; more</a>
+  <h2>Shop pages</h2>
+  <a href="#product">Product page</a>
+  <a href="#collection">Collection page</a>
+  <a href="#cart-page">Cart, search &amp; blog</a>
+  <h2>Reference</h2>
+  <a href="#anchors">Anchor links</a>
+  <a href="#quirks">Platform notes</a>
+  <a href="#models">3D models (GLB)</a>
+  <a href="#support">Support</a>
+</nav>
+<main>
+<h1>Set up <span>Resonance.</span></h1>
+<p class="lede">Resonance is a dark, editorial Shopify Online Store 2.0 theme built for product-led brands. This guide walks through everything from first upload to fine-tuning each section.</p>
+<p class="meta" style="color:var(--muted)">Need help at any point? <a href="https://resonancethemes.zohodesk.com/portal/en/home">Open the support portal</a> and search the knowledge base or submit a ticket.</p>
+
+<section id="welcome">
+  <h2>Welcome<span>.</span></h2>
+  <p>Out of the box, Resonance ships with a black background, white text, a sapphire accent, and a neon-cyan hover glow — but every color is yours to change. The theme is fully white-label: it works just as well for a cream-and-sage skincare brand as for a dark tech brand, and all demo copy is replaceable from the theme editor.</p>
+  <p>Everything in this guide happens in the Shopify admin under <strong>Online Store → Themes → Customize</strong> unless noted otherwise.</p>
+</section>
+
+<section id="quick-start">
+  <h2>Quick start<span>.</span></h2>
+  <ol>
+    <li><strong>Set your brand colors first.</strong> In the theme editor, open <strong>Theme Settings (the gear icon) → Branding Colors</strong> and set Background, Text, Accent, Glow, and Button. Almost every section inherits these automatically — set them once here before touching individual sections.</li>
+    <li><strong>Add your logo</strong> in the Header section settings (or leave it blank — the header shows your store name as styled text).</li>
+    <li><strong>Assign your menus.</strong> Header and footer each accept a menu from <strong>Online Store → Navigation</strong>. Until you assign one, tasteful fallback links are shown.</li>
+    <li><strong>Replace the demo imagery.</strong> Each image slot has a picker; bundled demo renders appear until you choose your own.</li>
+    <li><strong>Review each home page section</strong> top to bottom, replacing copy. Headlines are designed to end with an accent-colored period — the trailing period is added by the theme, so don't type one in the headline field.</li>
+  </ol>
+  <div class="callout"><strong>Tip:</strong> not every color in a section follows the global palette. After changing Theme Settings, skim each section's own color panel and override anything that didn't pick up your new colors.</div>
+</section>
+
+<section id="theme-settings">
+  <h2>Theme Settings<span>.</span></h2>
+  <table>
+    <tr><th>Group</th><th>What it controls</th></tr>
+    <tr><td>Branding Colors</td><td>The five global colors (see <a href="#color-system">color system</a>). Also styles the gift card page, which has no section settings of its own.</td></tr>
+    <tr><td>Typography</td><td>Heading and body fonts. Resonance ships with Archivo; any Shopify font pairs well with the uppercase heading treatment.</td></tr>
+    <tr><td>Social media</td><td>Instagram, Facebook, YouTube, X links — surfaced in the footer.</td></tr>
+    <tr><td>Cart</td><td><strong>Cart type</strong>: Drawer (slide-out panel, default) or Page (navigates to /cart).</td></tr>
+    <tr><td>Animation</td><td>Page transitions (crossfade between pages) on/off.</td></tr>
+    <tr><td>Favicon</td><td>Browser tab icon.</td></tr>
+  </table>
+</section>
+
+<section id="color-system">
+  <h2>The color system<span>.</span></h2>
+  <p>Resonance uses a <strong>global-first</strong> model: every customizable section has its own color panel, and any color left unset falls back to the matching global in Theme Settings. Change the globals and the whole store restyles; override per section only where you want an exception.</p>
+  <table>
+    <tr><th>Color</th><th>Where it appears</th></tr>
+    <tr><td>Background</td><td>Section backgrounds. Adjacent sections with matching backgrounds blend into one continuous field — no divider seams.</td></tr>
+    <tr><td>Text</td><td>Body copy. Meta text (dates, kickers, labels) uses the same color at reduced opacity.</td></tr>
+    <tr><td>Accent</td><td>Thin outlines and borders, the headline trailing period, the cart count badge, star ratings.</td></tr>
+    <tr><td>Glow</td><td>Hover halos only — the soft light that appears when you hover buttons and links. Never used as a text color.</td></tr>
+    <tr><td>Button</td><td>Optional solid button fill. Left unset, buttons use a "tinted glass" look: a translucent accent fill with a thin accent outline that solidifies and glows on hover.</td></tr>
+  </table>
+  <p>Most sections also offer: a <strong>Title color</strong> (falls back to Text), a <strong>border toggle + border color</strong>, and — where cards exist — a <strong>card tint color and opacity slider</strong>.</p>
+  <p>When you place text on a solid accent or button fill (badges, filter pills), the theme automatically flips the text to dark or light for contrast, based on the fill's lightness.</p>
+  <div class="callout warn"><strong>Resetting a color:</strong> to send a section color back to the global default, use the color picker's <em>reset</em> control (the ↺ / "reset to default" action) rather than deleting the hex value by hand — a hand-cleared field can leave a blank value behind.</div>
+</section>
+
+<section id="header">
+  <h2>Header &amp; navigation<span>.</span></h2>
+  <h3>Brand</h3>
+  <p>Upload a logo (width adjustable 50–300px) or leave both logo and Brand text blank to show your store's name automatically.</p>
+  <h3>Navigation</h3>
+  <ul>
+    <li><strong>Menu:</strong> assign any navigation menu. Second-level items become dropdowns; enable <strong>Mega menu</strong> to render them as a full-width panel instead. A <strong>menu background opacity</strong> slider gives the dropdown/drawer a frosted-glass look.</li>
+    <li><strong>Mobile:</strong> below 990px the nav collapses into a hamburger drawer that works even without JavaScript. Sub-menus become accordions.</li>
+  </ul>
+  <h3>Behavior</h3>
+  <ul>
+    <li><strong>Sticky header with hide-on-scroll</strong> (default on): the header hides as you scroll down and reappears the moment you scroll up.</li>
+    <li><strong>BUY NOW button:</strong> set its link, or leave blank to send shoppers to your all-products page (<code>/collections/all</code>). Optional hover text swap and a "static glow" checkbox (off by default) for a permanently glowing CTA.</li>
+    <li><strong>Predictive search</strong> and the cart icon (accent badge shows the item count) complete the bar.</li>
+  </ul>
+</section>
+
+<section id="announcement">
+  <h2>Announcement bar<span>.</span></h2>
+  <p><strong>Resonance Announcement</strong> sits above the header — short messages (shipping thresholds, launches) with optional link, full color controls, and no seam border against the header.</p>
+</section>
+
+<section id="cart-drawer">
+  <h2>Cart drawer<span>.</span></h2>
+  <p>With Cart type set to <em>Drawer</em>, clicking the cart icon opens a slide-out cart: quantity steppers, remove links, subtotal, and checkout — no page reload. Quick-add buttons on collection cards feed it directly. Switch to <em>Page</em> in Theme Settings → Cart if you prefer a full cart page.</p>
+</section>
+
+<section id="footer">
+  <h2>Footer<span>.</span></h2>
+  <ul>
+    <li><strong>Menu:</strong> assign a footer menu; recommended links are About, Contact, FAQ, Shipping &amp; Returns, Warranty, Privacy Policy, Terms of Service. (Create policies in <strong>Settings → Policies</strong>; their URLs are <code>/policies/privacy-policy</code> etc.) With no menu assigned, the footer builds a smart fallback from pages that exist.</li>
+    <li><strong>Payment icons</strong> (default on) show your store's enabled payment methods.</li>
+    <li><strong>Country and language selectors</strong> (defaults on) appear automatically once your store has 2+ markets or published languages — see <a href="#quirks">platform notes</a>.</li>
+    <li>Social icons come from Theme Settings → Social media.</li>
+  </ul>
+</section>
+
+<section id="hero">
+  <h2>Hero<span>.</span></h2>
+  <p>The full-bleed opener. Upload an ultra-wide image (2560×880 works best, with your product's focal point about two-thirds of the way across); on desktop the image frames the right side with a subtle mouse-driven tilt, and your headline sits left. On mobile everything centers over the image — an optional separate <strong>mobile image</strong> picker lets you supply a portrait crop.</p>
+  <ul>
+    <li><strong>Headline:</strong> rendered uppercase with an accent trailing period (added automatically).</li>
+    <li><strong>CTA:</strong> label + link (blank link → all-products page). A background color + opacity slider adds a frosted fill; at 0 the button is outline-only.</li>
+    <li><strong>Feature cards:</strong> up to several small image cards under the CTA, each with title, subtext, overlay tint + opacity, and an optional circular badge.</li>
+    <li>If your headline is hard to read over a bright image, darken the image, raise the card overlay, or set a Title color with more contrast.</li>
+  </ul>
+</section>
+
+<section id="storytelling">
+  <h2>Storytelling sections<span>.</span></h2>
+  <h3>Ticker</h3>
+  <p>An infinite marquee of short phrases separated by dots. A <strong>text opacity</strong> slider (default 30%) keeps it ambient. Edge fades match the section background automatically.</p>
+  <h3>Feature Split (Resonance Precision)</h3>
+  <p>A 50/50 block: headline + body + stacked feature items (label, description, icon, optional link) on one side, a large contained image on the other.</p>
+  <h3>Spec Story</h3>
+  <p>Chapter-style alternating image/text blocks used on the demo's Sound / Silence / Design pages. Choose image left or right per chapter; images crop uniformly to 4:3. Each chapter can carry an <a href="#anchors">anchor ID</a> for deep links.</p>
+  <h3>Scroll Story</h3>
+  <p>A pinned stage where 3–6 "beats" of image + copy crossfade as the visitor scrolls, with a progress rail. Falls back to simple stacked blocks when motion is reduced or JavaScript is off.</p>
+  <h3>Specs grid</h3>
+  <p>Icon + title + copy cards, 4-up on wide screens, wrapping neatly at every size. Card background and border colors are adjustable.</p>
+  <h3>Image + Text</h3>
+  <p>The general-purpose split (kicker, heading, rich text, optional button, image left/right). Powers the demo's About page.</p>
+  <h3>Video</h3>
+  <p>YouTube/Vimeo embed behind a cover image with play button — the video loads only on click, keeping pages fast.</p>
+</section>
+
+<section id="audio">
+  <h2>Audio player<span>.</span> <span class="pill">Signature</span></h2>
+  <p><strong>Resonance Audio Player</strong> lets shoppers hear your product — sound demos, sample tracks, ambience. Add track blocks, each with a title, caption, and audio source:</p>
+  <ul>
+    <li><strong>Audio URL:</strong> paste a direct link to an MP3 you've uploaded under <strong>Content → Files</strong> in your Shopify admin (upload the file there, then copy its link).</li>
+    <li>If both a URL and a bundled filename are set, the URL wins.</li>
+  </ul>
+  <p>Keep files small (roughly 1&nbsp;MB per 30–60s clip) for fast loading.</p>
+</section>
+
+<section id="hotspots">
+  <h2>Image hotspots<span>.</span></h2>
+  <p><strong>Resonance Image Hotspots</strong> places pulsing accent dots on an image; hovering or tapping a dot pops a callout card with a title and text. Each hotspot block has X/Y position sliders — drag the sliders while watching the preview to place dots precisely. Great for exploded views, ingredient callouts, or feature tours.</p>
+</section>
+
+<section id="utility-sections">
+  <h2>FAQ, compare &amp; more<span>.</span></h2>
+  <h3>FAQ</h3>
+  <p>A native accordion. Blocks are either <em>category headers</em> or <em>question/answer</em> pairs (rich text answers, optional "open by default"). Left or center alignment.</p>
+  <h3>Comparison table</h3>
+  <p>2–3 columns with one highlightable column. Feature-row values of <code>yes</code> / <code>no</code> render as check / dash icons; anything else prints as text. Scrolls horizontally on small screens.</p>
+  <h3>Testimonials</h3>
+  <p>Glass quote cards with a 0–5 accent-star rating, quote, author, and role.</p>
+  <h3>Newsletter</h3>
+  <p>Email capture using Shopify's native customer form — subscribers are tagged <code>newsletter</code> and appear under Customers, ready for Shopify Email, Klaviyo, etc. All copy is editable, plus an ambient aura opacity slider.</p>
+  <h3>Logo bar</h3>
+  <p>An "As featured in" strip of press/partner logos.</p>
+  <h3>Legal page</h3>
+  <p>A quiet, readable layout for policies: kicker, title, optional "last updated" line, and a comfortable 720px column. Assign the <code>legal</code> page template to your policy pages.</p>
+  <h3>Contact form</h3>
+  <p>Standard Shopify contact form with the full color treatment and left/center alignment.</p>
+</section>
+
+<section id="product">
+  <h2>Product page<span>.</span></h2>
+  <h3>Media gallery</h3>
+  <p>Supports images, videos, YouTube/Vimeo, and interactive 3D models — each media item gets a thumbnail (with play/cube badges). Videos autoplay when their thumbnail is clicked. For 3D models, see <a href="#models">the GLB guide</a>; a <strong>3D viewer background</strong> color setting is available.</p>
+  <h3>Buy box</h3>
+  <ul>
+    <li><strong>Variant color swatches</strong> (default on): options named Color/Colour render as circular chips; other options stay as pills.</li>
+    <li><strong>Savings badge</strong> (default on): "Save N%" next to sale prices, recalculated per variant.</li>
+    <li><strong>Sticky add-to-cart bar</strong> (default on): a slim fixed bar appears once the main button scrolls out of view.</li>
+    <li><strong>Unit prices</strong> display automatically when set on a variant in the admin.</li>
+    <li><strong>Trust badges:</strong> small check-marked reassurances (free shipping, warranty, returns) as blocks.</li>
+    <li><strong>Collapsible panels:</strong> rich-text accordions after the description (shipping, warranty, in-the-box).</li>
+    <li><strong>Promo strip:</strong> an offer banner with a copy-to-clipboard discount code and fine print. Create the actual discount under <strong>Discounts</strong> in the admin — the strip only displays the code.</li>
+    <li><strong>"Complete the setup" upsell:</strong> pick up to 4 companion products.</li>
+    <li><strong>Gift card recipient form</strong> appears automatically on gift card products: the buyer can send to a recipient's email with a message on a chosen date.</li>
+  </ul>
+  <h3>Recommendations</h3>
+  <p><strong>Resonance Recommendations</strong> ("You may also like") uses Shopify's recommendation engine and appears below the main product section. It needs a few days of store activity before suggestions get smart.</p>
+</section>
+
+<section id="collection">
+  <h2>Collection page<span>.</span></h2>
+  <ul>
+    <li><strong>Filter drawer:</strong> a Filter pill (with active-count badge) opens a slide-in panel — collapsible groups, multi-select checkboxes with counts, price range inputs, Clear all / Apply. Active filters show as removable chips under the toolbar. Configure which filters exist under <strong>Search &amp; Discovery</strong> (Shopify's free app).</li>
+    <li><strong>Quick add</strong> (default on): a pill on each product card adds single-variant products straight to the cart; multi-variant products link to their page ("Choose options").</li>
+    <li>Sale badges appear only when a compare-at price is set; the badge text auto-flips dark/light for contrast.</li>
+  </ul>
+</section>
+
+<section id="cart-page">
+  <h2>Cart, search &amp; blog<span>.</span></h2>
+  <ul>
+    <li><strong>Cart page:</strong> line items with order-notes field, continue-shopping link, and a styled empty state.</li>
+    <li><strong>Search:</strong> predictive suggestions as you type, plus a full results page.</li>
+    <li><strong>Blog:</strong> optional oversized "Latest" feature card for the newest post, posts-per-page control, show/hide toggles for image/date/author/excerpt, and card tint controls. Card images use each post's <em>Featured image</em>.</li>
+    <li><strong>Article:</strong> share buttons, previous/next navigation cards, and a body font-size slider.</li>
+    <li>Customer accounts, order pages, login/register, and the password (coming-soon) page all follow your global colors.</li>
+  </ul>
+</section>
+
+<section id="anchors">
+  <h2>Anchor links<span>.</span></h2>
+  <p>Most content sections have an <strong>Anchor ID</strong> setting. Give a section an ID (e.g. <code>spatial-engine</code>) and you can deep-link to it from any menu or button: <code>/pages/sound#spatial-engine</code>. This is how the demo's Technology menu jumps straight to specific chapters.</p>
+  <div class="callout"><strong>Tip:</strong> Shopify's link picker doesn't list <code>/collections/all</code> (the built-in all-products page) — type it into the URL field manually.</div>
+</section>
+
+<section id="quirks">
+  <h2>Platform notes<span>.</span></h2>
+  <p>Things that look like theme bugs but are Shopify platform behavior:</p>
+  <ul>
+    <li><strong>Price filter disappears in some currencies.</strong> Shopify hides the price-range filter when a shopper browses in a converted currency (e.g. EUR on a USD store). It returns in your store's base currency. Not a theme setting.</li>
+    <li><strong>Language selector not showing?</strong> Languages must be both <em>published</em> (Settings → Languages) and <em>assigned to a domain</em> (Settings → Domains) before Shopify exposes them to themes. The country selector likewise needs 2+ active markets.</li>
+    <li><strong>Editor preview ≠ real phone.</strong> The theme editor's mobile preview is a desktop browser in a narrow frame — hover effects and some scroll behavior differ. Always confirm mobile issues on a real device via <strong>Preview</strong> (share link) before reporting them.</li>
+    <li><strong>Styles look stale in the editor?</strong> The editor sometimes caches section CSS — refresh the browser tab before assuming something is broken.</li>
+    <li><strong>"View in your space" (AR) button</strong> on 3D models only appears on real mobile devices, not in the editor or desktop preview.</li>
+    <li><strong>Meta description &amp; social image</strong> are set in <strong>Online Store → Preferences</strong>, not in the theme.</li>
+  </ul>
+</section>
+
+<section id="models">
+  <h2>3D models (GLB)<span>.</span></h2>
+  <p>To show a product in 3D/AR, upload a <code>.glb</code> file as product media. For good results:</p>
+  <ul>
+    <li><strong>Real-world scale.</strong> AR places the model at its file size in meters — a pair of headphones should be about 0.2&nbsp;m tall, not 1.2&nbsp;m. Rescale before export (free tools like <a href="https://gltf.report">gltf.report</a> can do this).</li>
+    <li><strong>No WebP textures.</strong> iOS Quick Look renders WebP-textured models magenta. Keep textures JPG or PNG (watch out: some optimizers convert to WebP by default).</li>
+    <li><strong>Keep it under 8&nbsp;MB</strong> (Shopify's hard cap is 15&nbsp;MB, but smaller loads much faster).</li>
+  </ul>
+</section>
+
+<section id="support">
+  <h2>Support<span>.</span></h2>
+  <p>Search the knowledge base or submit a ticket at the <a href="https://resonancethemes.zohodesk.com/portal/en/home"><strong>Resonance Themes support portal</strong></a> — no account required. You can also email <a href="mailto:resonance.themehelp@gmail.com">resonance.themehelp@gmail.com</a>.</p>
+  <p>When reporting an issue, include: your theme version (1.0.0 shows under Online Store → Themes), the page URL, a screenshot, and whether it happens in the editor, the preview link, or the live store.</p>
+</section>
+</main>
+</div>
+<footer class="site">Resonance theme · Version 1.0.0 · <a href="https://resonancethemes.zohodesk.com/portal/en/home">Support</a></footer>
+</body>
+</html>
