@@ -1,1 +1,1 @@
-# resonance-docs
+# amplitude-docs
